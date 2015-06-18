@@ -1,5 +1,7 @@
 package book.data.convert.service;
 
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,11 +11,15 @@ public class BookDataConvertServiceTest {
 
 	private BookDataConvertService impl;
 	private String fileName;
+	private String storageEnable;
+	private String storageFile;
 	
 	@Before
 	public void setUp() throws Exception {
 		impl = new BookDataConvertServiceImpl();
 		fileName = "resource/textInput1.txt";
+		storageEnable = "true";
+		storageFile = "resource/output.txt";
 	}
 	
 	//@Test
@@ -28,7 +34,7 @@ public class BookDataConvertServiceTest {
 	public void testReadDataFromFileError() {
 		System.out.println("Reading input ...");
 		System.out.println("++++");
-		String readFile = impl.readDataFromFile(fileName);
+		String readFile = impl.readDataFromFile("resource/input.txt");
 		if(readFile != null){
 			System.out.println(readFile);
 		}
@@ -64,10 +70,20 @@ public class BookDataConvertServiceTest {
 	}
 
 	@Test
+	public void testCheckISBN(){
+		assertEquals(true, impl.checkISBN(impl.readDataFromFile(fileName)));
+	}
+	
+	//@Test
+	public void testCheckISBNError(){
+		assertEquals(true, impl.checkISBN(impl.readDataFromFile("resource/textInput3.txt")));
+	}
+	
+	@Test
 	public void testTxtToJsonConvert() {
 		System.out.println("Convert data into JSON format ...");
 		System.out.println("++++");
-		impl.txtToJsonConvert(impl.readDataFromFile(fileName));
+		impl.txtToJsonConvert(impl.readDataFromFile(fileName), storageEnable, storageFile);
 		System.out.println("----");
 	}
 
@@ -75,7 +91,7 @@ public class BookDataConvertServiceTest {
 	public void testTxtToJsonConvertError() {
 		System.out.println("Convert data into JSON format ...");
 		System.out.println("++++");
-		impl.txtToJsonConvert(impl.readDataFromFile("resource/textInput3.txt"));
+		impl.txtToJsonConvert(impl.readDataFromFile("resource/textInput3.txt"), storageEnable, storageFile);
 		System.out.println("----");
 	}
 	
@@ -83,7 +99,7 @@ public class BookDataConvertServiceTest {
 	public void testJsonToTxtConvert() {
 		System.out.println("Convert data into TXT format ...");
 		System.out.println("++++");
-		impl.jsonToTxtConvert(fileName);
+		impl.jsonToTxtConvert(fileName, storageEnable, storageFile);
 		System.out.println("----");
 	}
 	
@@ -91,7 +107,7 @@ public class BookDataConvertServiceTest {
 	public void testJsonToTxtConvertError(){
 		System.out.println("Convert data into TXT format ...");
 		System.out.println("++++");
-		impl.jsonToTxtConvert("resource/jsonInput3.txt");
+		impl.jsonToTxtConvert("resource/jsonInput3.txt", storageEnable, storageFile);
 		System.out.println("----");
 	}
 }

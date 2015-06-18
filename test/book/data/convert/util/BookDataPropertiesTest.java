@@ -12,13 +12,23 @@ public class BookDataPropertiesTest {
 	public void testGetConvertFormatDetails() {
 		Properties prop = BookDataProperties.getConvertFormatDetails();
 		String targetFormat = prop.getProperty("targetFormat");
+		String storageEnable = prop.getProperty("storageEnabled");
+		String storageFile = prop.getProperty("storageFile");
+		
 		assertEquals("json", targetFormat);
+		assertEquals("true", storageEnable);
+		assertEquals("resource/output.txt", storageFile);
 	}
 	
 	@Test
 	public void testGetConvertFormatDetailsError(){
 		Properties prop = BookDataProperties.getConvertFormatDetails();
 		String targetFormat = prop.getProperty("targetFormat");
-		assertEquals("txt", targetFormat);
+		String storageEnable = prop.getProperty("storageEnabled");
+		String storageFile = prop.getProperty("storageFile");
+	
+		assertEquals("json", targetFormat);
+		assertEquals("false", storageEnable);
+		assertEquals("output.txt", storageFile);
 	}
 }

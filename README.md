@@ -4,11 +4,15 @@ It will convert book information of one text format to another text format. Book
 
     Run BookDataConvert.java file to see the output. Before run this file:
 * You have to pass the **filepath** as a argument.
-* You have to set the **targetFormat** into properties file.
+* You have to set some configuration into the properties file.
+    * targetFormat: Set the target format either txt or json.
+    * storageEnabled: Set it true or false to enable/disable storing data in a file.
+    * storageFile: Set a valid filepath where stored in the storage file.
 
 I also create Junit test cases for this project. Here, you can find success and error test cases. Following test cases occured for both (success & error):
 * Read data file
 * Read properties file
+* Check ISBN exist or not
 * Convert text to json format
 * Convert json to text fromat
 * Detect the data file format

@@ -6,9 +6,11 @@ public interface BookDataConvertService {
 	
 	public String readFileOutputFormat(String fileName);
 	
-	public String detectDataFormat(String file);
+	public boolean checkISBN(String fileName);
 	
-	public void txtToJsonConvert(String file);
+	public String detectDataFormat(String fileName);
 	
-	public void jsonToTxtConvert(String file);
+	public void txtToJsonConvert(String fileName, String storageEnable, String storageFile);
+	
+	public void jsonToTxtConvert(String fileName, String storageEnable, String storageFile);
 }

@@ -2,6 +2,7 @@
 "book": {
 "name": "The Java Virtual Machine Specification",
 "authors": ["Tim Lindholm", "Frank Yellin", "Bill Joy", "Kathy Walrath"],
-"published-date": "September 1996"
+"published-date": "September 1996",
+"isbn": "u9348984995898493"
 }
 }
