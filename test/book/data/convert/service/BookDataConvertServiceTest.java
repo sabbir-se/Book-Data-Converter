@@ -24,6 +24,17 @@ public class BookDataConvertServiceTest {
 		System.out.println("----");
 	}
 
+	//@Test
+	public void testReadDataFromFileError() {
+		System.out.println("Reading input ...");
+		System.out.println("++++");
+		String readFile = impl.readDataFromFile(fileName);
+		if(readFile != null){
+			System.out.println(readFile);
+		}
+		System.out.println("----");
+	}
+	
 	@Test
 	public void testReadFileOutputFormat() {
 		System.out.println("Convert input into output format ...");

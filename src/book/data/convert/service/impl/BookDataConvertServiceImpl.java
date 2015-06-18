@@ -20,6 +20,11 @@ import book.data.convert.service.BookDataConvertService;
 
 public class BookDataConvertServiceImpl implements BookDataConvertService{
 	
+	/**
+	 * Reading content of a file
+	 * 
+	 * @param fileName
+	 */
 	@Override
 	public String readDataFromFile(String fileName) {
 		try {
@@ -50,7 +55,11 @@ public class BookDataConvertServiceImpl implements BookDataConvertService{
 		}
 	}
 	
-	
+	/**
+	 * Rearrange the content of a file into specific output format
+	 * 
+	 * @param fileName
+	 */
 	@Override
 	public String readFileOutputFormat(String fileName){
 		String[] array = fileName.split("\n");
@@ -63,6 +72,11 @@ public class BookDataConvertServiceImpl implements BookDataConvertService{
 		return line;
 	}
 	
+	/**
+	 * Capitalize first character of a line
+	 * 
+	 * @param fileName
+	 */
 	private String capitalizeFirstCharacter(String line){
 		String str = line.trim();
 		if(str.contains("-")){
@@ -77,7 +91,11 @@ public class BookDataConvertServiceImpl implements BookDataConvertService{
 		return str;
 	}
 	
-	
+	/**
+	 * Detect data format of a file
+	 * 
+	 * @param fileName
+	 */
 	@Override
 	public String detectDataFormat(String fileName) {
 		String[] array = fileName.split("\n");
@@ -93,7 +111,11 @@ public class BookDataConvertServiceImpl implements BookDataConvertService{
 		return "ERROR";
 	}
 	
-	
+	/**
+	 * Convert a file from text to json
+	 * 
+	 * @param fileName
+	 */
 	@Override
 	public void txtToJsonConvert(String fileName){
 		try{
@@ -131,7 +153,11 @@ public class BookDataConvertServiceImpl implements BookDataConvertService{
 		}
 	}
 	
-	
+	/**
+	 * Convert a file from json to text
+	 * 
+	 * @param fileName
+	 */
 	@Override
 	public void jsonToTxtConvert(String fileName){
 		JsonParser parser = new JsonParser();
